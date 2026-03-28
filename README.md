@@ -50,10 +50,11 @@ park-in-it/
 ├── main.py                  # Entry point of the application
 │
 └── src/
-    ├── core/                # Main game control
+    ├── core/                # Main game control and engine layer
     │   ├── config.py        # Game configuration and constants
     │   ├── game.py          # Main game class and game loop
-    │   └── renderer.py      # Rendering layer / display logic
+    │   ├── engine.py        # Engine layer (pygame, window, events, timing)
+    │   └── renderer.py      # Rendering layer / drawing logic
     │
     ├── entities/            # Game world objects
     │   └── car.py           # Car entity
