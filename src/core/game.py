@@ -9,8 +9,11 @@ class Game:
         print("Game initialized")
         
     def run(self):
-        #while self.running:
+        print("Game loop!")
+        while self.running:
+            self.running = self.gameEngine.getEvents()
+            
             # handle_input()
             # update()
             # render()
-        print("Game loop!")
+        self.gameEngine.exit()

@@ -31,8 +31,17 @@ class GameEngine:
         print(f"GameEngine starting!")
         self.screensize = (cfg.SCREEN_WIDTH, cfg.SCREEN_HEIGHT)
         self.fps = cfg.FPS
-        self.clock = pg.time.Clock()
         pg.init()
+        self.clock = pg.time.Clock()
         self.gamescreen = pg.display.set_mode(self.screensize)
         self.renderer = Renderer(self.gamescreen)
         print(f"GameEngine initialized!")
+
+    def getEvents(self):
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                return False
+        return True
+    
+    def exit(self):
+        pg.quit()

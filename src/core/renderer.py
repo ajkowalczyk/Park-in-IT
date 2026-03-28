@@ -19,7 +19,6 @@ Designed to be replaceable in the future if switching rendering backend
 # - draw environment (grid / obstacles / parking spots)
 # - update display (flip / refresh)
 
-import src.core.config as cfg
 
 class Renderer:
     def __init__(self, pyGameScreen):
