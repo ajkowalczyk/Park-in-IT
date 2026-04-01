@@ -15,11 +15,7 @@ It only provides the technical layer required to run the game.
 """
 
 # TODO:
-# - initialize pygame
-# - create window/screen
 # - implement event polling (get_events)
-# - detect quit events
-# - integrate Renderer
 # - implement frame timing (tick)
 
 import src.core.config as cfg
@@ -33,15 +29,29 @@ class GameEngine:
         self.fps = cfg.FPS
         pg.init()
         self.clock = pg.time.Clock()
+        self.dt = 0
         self.gamescreen = pg.display.set_mode(self.screensize)
         self.renderer = Renderer(self.gamescreen)
         print(f"GameEngine initialized!")
+
+    def run(self):
+        self.renderer.refresh()
+        self.getEvents()
+        self.dt = self.clock.tick(self.fps) / 1000
+
 
     def getEvents(self):
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return False
+            if event.type == pg.KEYDOWN:
+                print("sth pressed :)")
+                if event.key == pg.K_SPACE:
+                    print("oh, it was space!")
+        # keys = pg.key.get_pressed()   # 
         return True
     
-    def exit(self):
+
+    def quit(self):
+        print("Bye bye!")
         pg.quit()

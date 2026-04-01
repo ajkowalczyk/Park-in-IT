@@ -19,8 +19,17 @@ Designed to be replaceable in the future if switching rendering backend
 # - draw environment (grid / obstacles / parking spots)
 # - update display (flip / refresh)
 
+import pygame as pg
 
 class Renderer:
     def __init__(self, pyGameScreen):
         self.gamescreen = pyGameScreen
         print(f"Renderer initialized - {self.gamescreen.get_size()}")
+
+    def refresh(self):
+        self.gamescreen.fill("#1f1f1f")
+        self.dropCurrentState()
+        pg.display.flip()
+    
+    def dropCurrentState(self):
+        pass

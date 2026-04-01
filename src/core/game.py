@@ -12,8 +12,8 @@ class Game:
         print("Game loop!")
         while self.running:
             self.running = self.gameEngine.getEvents()
-            
+            self.gameEngine.run()
             # handle_input()
             # update()
             # render()
-        self.gameEngine.exit()
+        self.gameEngine.quit()
